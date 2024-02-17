@@ -1,0 +1,36 @@
+[alias]
+	lol = log --graph --decorate --pretty=oneline --all --abbrev-commit
+	pushf = push --force-with-lease --force-if-includes
+[core]
+	editor = vim
+	quotepath = false
+	safecrlf = true
+[credential]
+	helper = store
+[diff]
+	algorithm = histogram
+	colorMoved = dimmed-zebra
+	guitool = vscode
+	tool = vimdiff
+[difftool]
+	prompt = false
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
+[fetch]
+	prune = true
+[merge]
+	conflictStyle = zdiff3
+	ff = false
+	guitool = vscode
+	tool = vimdiff
+[mergetool]
+	prompt = false
+[mergetool "vscode"]
+	cmd = code --wait $MERGED
+[pull]
+	ff = only
+[push]
+	autoSetupRemote = true
+[user]
+	email = mfjt@users.noreply.github.com
+	name = oɹıɥɐsɐɯ ɐʇıɾnɟ
