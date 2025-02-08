@@ -1,11 +1,8 @@
 if [ -f "${HOME}/.profile" ]; then
-   . "${HOME}/.profile"
+  . "${HOME}/.profile"
 fi
 
-if [ -d "${HOME}/.fly" ]; then
-    export FLYCTL_INSTALL="${HOME}/.fly"
-    export PATH="${FLYCTL_INSTALL}/bin:${PATH}"
-fi
+export FLYCTL_INSTALL="${HOME}/.local"
 
 if [ -n "${LOCALAPPDATA}" ] && [ -d "${LOCALAPPDATA}/Programs/Microsoft VS Code/bin" ]; then
     PATH="${LOCALAPPDATA}/Programs/Microsoft VS Code/bin:${PATH}"
