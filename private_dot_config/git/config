@@ -1,8 +1,17 @@
 [alias]
+	dd = difftool -d
 	lol = log --graph --decorate --pretty=oneline --all --abbrev-commit
 	pushf = push --force-with-lease --force-if-includes
+[branch]
+	sort = -committerdate
+[column]
+	ui = auto
+[commit]
+	verbose = true
 [core]
-	editor = vim
+	autocrlf = false
+	editor = vim --nofork
+	ignorecase = false
 	quotepath = false
 	safecrlf = true
 [credential]
@@ -11,19 +20,27 @@
 	algorithm = histogram
 	colorMoved = dimmed-zebra
 	guitool = vscode
+	mnemonicPrefix = true
+	renames = true
 	tool = vimdiff
 [difftool]
+	guiDefault = true
 	prompt = false
 [difftool "vscode"]
 	cmd = code --wait --diff $LOCAL $REMOTE
 [fetch]
+	all = true
 	prune = true
+	pruneTags = true
+[help]
+	autocorrect = prompt
 [merge]
 	conflictStyle = zdiff3
 	ff = false
 	guitool = vscode
 	tool = vimdiff
 [mergetool]
+	guiDefault = true
 	prompt = false
 [mergetool "vscode"]
 	cmd = code --wait $MERGED
@@ -31,6 +48,8 @@
 	ff = only
 [push]
 	autoSetupRemote = true
+[tag]
+	sort = version:refname
 [user]
 	email = mfjt@users.noreply.github.com
 	name = oɹıɥɐsɐɯ ɐʇıɾnɟ
