@@ -1,0 +1,17 @@
+if [ -f "${HOME}/.profile" ]; then
+  . "${HOME}/.profile"
+fi
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+if [ -n "${LOCALAPPDATA}" ] && [ -d "${LOCALAPPDATA}/Programs/Git Credential Manager" ]; then
+ PATH="${LOCALAPPDATA}/Programs/Git Credential Manager:${PATH}"
+fi
+
+if [ -n "${LOCALAPPDATA}" ] && [ -d "${LOCALAPPDATA}/Programs/Microsoft VS Code/bin" ]; then
+  PATH="${LOCALAPPDATA}/Programs/Microsoft VS Code/bin:${PATH}"
+fi
+
+if [ -n "${LOCALAPPDATA}" ] && [ -d "${LOCALAPPDATA}/Programs/WinMerge" ]; then
+  PATH="${LOCALAPPDATA}/Programs/WinMerge:${PATH}"
+fi
