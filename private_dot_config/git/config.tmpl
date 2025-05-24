@@ -55,3 +55,7 @@
 [user]
 	email = mfjt@users.noreply.github.com
 	name = oɹıɥɐsɐɯ ɐʇıɾnɟ
+[include]
+{{ if eq .chezmoi.os "windows" }}
+	path = config.windows
+{{ end }}
