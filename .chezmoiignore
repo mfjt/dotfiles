@@ -8,4 +8,5 @@ install.sh
 
 {{ if ne .chezmoi.os "windows" }}
 .config/git/config.windows
+.wslconfig
 {{ end }}
