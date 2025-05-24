@@ -1,0 +1,14 @@
+if [ -f "${HOME}/.profile" ]; then
+  . "${HOME}/.profile"
+fi
+
+export FLYCTL_INSTALL="${HOME}/.local"
+
+if [ -n "${LOCALAPPDATA}" ] && [ -d "${LOCALAPPDATA}/Programs/Git Credential Manager" ]; then
+    export GIT_EXEC_PATH="/usr/lib/git-core"
+    PATH="${LOCALAPPDATA}/Programs/Git Credential Manager:${PATH}"
+fi
+
+if [ -n "${LOCALAPPDATA}" ] && [ -d "${LOCALAPPDATA}/Programs/Microsoft VS Code/bin" ]; then
+    PATH="${LOCALAPPDATA}/Programs/Microsoft VS Code/bin:${PATH}"
+fi
