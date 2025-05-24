@@ -1,17 +1,14 @@
-if [ -f "${HOME}/.profile" ]; then
-  . "${HOME}/.profile"
+[ -r "${HOME}/.profile" ] && . "${HOME}/.profile"
+
+[ -x "/home/linuxbrew/.linuxbrew/bin/brew" ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
+
+if command -v mise &> /dev/null; then
+  eval "$(mise activate bash)"
+  eval "$(mise activate --shims bash)"
 fi
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
-if [ -n "${LOCALAPPDATA}" ] && [ -d "${LOCALAPPDATA}/Programs/Git Credential Manager" ]; then
-  PATH="${LOCALAPPDATA}/Programs/Git Credential Manager:${PATH}"
-fi
-
-if [ -n "${LOCALAPPDATA}" ] && [ -d "${LOCALAPPDATA}/Programs/Microsoft VS Code/bin" ]; then
-  PATH="${LOCALAPPDATA}/Programs/Microsoft VS Code/bin:${PATH}"
-fi
-
-if [ -n "${LOCALAPPDATA}" ] && [ -d "${LOCALAPPDATA}/Programs/WinMerge" ]; then
-  PATH="${LOCALAPPDATA}/Programs/WinMerge:${PATH}"
+if [ -n "${LOCALAPPDATA}" ]; then
+  [ -d "${LOCALAPPDATA}/Programs/Git Credential Manager" ] && PATH="${LOCALAPPDATA}/Programs/Git Credential Manager:${PATH}"
+  [ -d "${LOCALAPPDATA}/Programs/Microsoft VS Code/bin" ] && PATH="${LOCALAPPDATA}/Programs/Microsoft VS Code/bin:${PATH}"
+  [ -d "${LOCALAPPDATA}/Programs/WinMerge" ] && PATH="${LOCALAPPDATA}/Programs/WinMerge:${PATH}"
 fi
