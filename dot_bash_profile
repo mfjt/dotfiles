@@ -12,7 +12,8 @@ GIT_PS1_SHOWSTASHSTATE='true'
 GIT_PS1_SHOWUNTRACKEDFILES='true'
 GIT_PS1_SHOWUPSTREAM='auto'
 
-[ -x "/home/linuxbrew/.linuxbrew/bin/brew" ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
+[ -x "/home/linuxbrew/.linuxbrew/bin/brew" ] &&
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
 
 if command -v mise &> /dev/null; then
   eval "$(mise activate bash)"
@@ -20,9 +21,14 @@ if command -v mise &> /dev/null; then
 fi
 
 if [ -n "${LOCALAPPDATA}" ]; then
-  mingit=$(find "${LOCALAPPDATA}"/Microsoft/WinGet/Packages/Git.MinGit_*/mingw64/bin -type f -name git-credential-manager.exe 2>/dev/null -exec dirname {} \;)
-  [ -d "${mingit}" ] && PATH="${mingit}:${PATH}"
+  mingit_dir="$(find "${LOCALAPPDATA}"/Microsoft/WinGet/Packages/Git.MinGit_*/mingw64/bin \
+    -type f -name git-credential-manager.exe 2>/dev/null -exec dirname {} \; -quit)"
+  [ -n "${mingit_dir}" ] && [ -d "${mingit_dir}" ] &&
+    PATH="${mingit_dir}:${PATH}"
 
-  [ -d "${LOCALAPPDATA}/Programs/Microsoft VS Code/bin" ] && PATH="${LOCALAPPDATA}/Programs/Microsoft VS Code/bin:${PATH}"
-  [ -d "${LOCALAPPDATA}/Programs/WinMerge" ] && PATH="${LOCALAPPDATA}/Programs/WinMerge:${PATH}"
+  [ -d "${LOCALAPPDATA}/Programs/Microsoft VS Code/bin" ] &&
+    PATH="${LOCALAPPDATA}/Programs/Microsoft VS Code/bin:${PATH}"
+
+  [ -d "${LOCALAPPDATA}/Programs/WinMerge" ] &&
+    PATH="${LOCALAPPDATA}/Programs/WinMerge:${PATH}"
 fi
