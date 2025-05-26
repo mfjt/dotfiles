@@ -20,7 +20,9 @@ if command -v mise &> /dev/null; then
 fi
 
 if [ -n "${LOCALAPPDATA}" ]; then
-  [ -d "${LOCALAPPDATA}/Programs/Git Credential Manager" ] && PATH="${LOCALAPPDATA}/Programs/Git Credential Manager:${PATH}"
+  mingit=$(find "${LOCALAPPDATA}"/Microsoft/WinGet/Packages/Git.MinGit_*/mingw64/bin -type f -name git-credential-manager.exe 2>/dev/null -exec dirname {} \;)
+  [ -d "${mingit}" ] && PATH="${mingit}:${PATH}"
+
   [ -d "${LOCALAPPDATA}/Programs/Microsoft VS Code/bin" ] && PATH="${LOCALAPPDATA}/Programs/Microsoft VS Code/bin:${PATH}"
   [ -d "${LOCALAPPDATA}/Programs/WinMerge" ] && PATH="${LOCALAPPDATA}/Programs/WinMerge:${PATH}"
 fi
