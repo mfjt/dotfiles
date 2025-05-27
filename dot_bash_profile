@@ -28,7 +28,4 @@ if [ -n "${LOCALAPPDATA}" ]; then
 
   [ -d "${LOCALAPPDATA}/Programs/Microsoft VS Code/bin" ] &&
     PATH="${LOCALAPPDATA}/Programs/Microsoft VS Code/bin:${PATH}"
-
-  [ -d "${LOCALAPPDATA}/Programs/WinMerge" ] &&
-    PATH="${LOCALAPPDATA}/Programs/WinMerge:${PATH}"
 fi
