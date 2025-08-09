@@ -1,5 +1,3 @@
 [core]
 	editor = 'C:\\Program Files\\Hidemaru\\Hidemaru.exe' //fu8
 	pager =
-[http]
-	sslBackend = schannel
