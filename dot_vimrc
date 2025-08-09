@@ -1,20 +1,31 @@
-set noswapfile
-
-set autoindent
-set smartindent
-
 set hlsearch
 set ignorecase
+set noswapfile
 set smartcase
-nmap <ESC><ESC> :noh<CR>
-noremap j gj
-noremap k gk
+set undofile
 
-set background=dark
+nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
+nnoremap j gj
+nnoremap k gk
+inoremap jj <Esc>
+
 set cursorline
+set listchars=eol:↲,tab:»·,trail:·,extends:»,precedes:«,nbsp:%
 set list
-set listchars=tab:»·,trail:·,eol:↲,extends:»,precedes:«,nbsp:%
-set number
-set showmatch
+set relativenumber
+set smartindent
 
 syntax enable
+set termguicolors
+filetype plugin indent on
+
+" https://github.com/microsoft/WSL/issues/4440#issuecomment-2032529622
+let s:clip = '/mnt/c/Windows/System32/clip.exe'
+if executable(s:clip)
+  augroup WSLYank
+    autocmd!
+    autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
+  augroup END
+else
+  set clipboard=unnamedplus
+endif
