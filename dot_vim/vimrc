@@ -1,8 +1,16 @@
 set hlsearch
 set ignorecase
-set noswapfile
 set smartcase
+set viminfo+=n~/.vim/viminfo
+
+set backup
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
 set undofile
+set undodir=~/.vim/undo//
+silent! call mkdir(expand(&backupdir), 'p', 0700)
+silent! call mkdir(expand(&directory), 'p', 0700)
+silent! call mkdir(expand(&undodir), 'p', 0700)
 
 nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
 nnoremap j gj
@@ -12,6 +20,7 @@ inoremap jj <Esc>
 set cursorline
 set listchars=eol:↲,tab:»·,trail:·,extends:»,precedes:«,nbsp:%
 set list
+set number
 set relativenumber
 set smartindent
 
@@ -19,13 +28,4 @@ syntax enable
 set termguicolors
 filetype plugin indent on
 
-" https://github.com/microsoft/WSL/issues/4440#issuecomment-2032529622
-let s:clip = '/mnt/c/Windows/System32/clip.exe'
-if executable(s:clip)
-  augroup WSLYank
-    autocmd!
-    autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
-  augroup END
-else
-  set clipboard=unnamedplus
-endif
+set clipboard=unnamedplus

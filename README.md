@@ -17,6 +17,8 @@ scoop install main/zenhan
 ### Ubuntu on WSL2
 
 ```shell
+sudo apt install vim-gtk3
+
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
 brew analytics off

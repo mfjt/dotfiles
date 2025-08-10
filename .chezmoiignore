@@ -3,13 +3,13 @@ README.md
 install.sh
 
 {{ if ne .chezmoi.os "linux" }}
+.vim/
 .bash_aliases
 .bash_profile
-.vimrc
 {{ end }}
 
 {{ if ne .chezmoi.os "windows" }}
-.config/git/config.windows
 .wslconfig
 AppData/
+.config/git/config.windows
 {{ end }}
