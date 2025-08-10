@@ -13,7 +13,6 @@ if not vim.g.vscode then
   vim.opt.listchars = { eol = "↲", tab = "»·", trail = "·", extends = "»", precedes = "«", nbsp = "%" }
   vim.opt.number = true
   vim.opt.relativenumber = true
-  vim.opt.smartindent = true
 else
   vim.opt.swapfile = false
 end

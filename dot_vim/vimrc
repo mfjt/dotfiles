@@ -17,14 +17,14 @@ nnoremap j gj
 nnoremap k gk
 inoremap jj <Esc>
 
+set autoindent
 set cursorline
-set listchars=eol:↲,tab:»·,trail:·,extends:»,precedes:«,nbsp:%
 set list
+set listchars=eol:↲,tab:»·,trail:·,extends:»,precedes:«,nbsp:%
 set number
 set relativenumber
-set smartindent
 
-syntax enable
+syntax on
 set termguicolors
 filetype plugin indent on
 
