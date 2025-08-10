@@ -10,8 +10,8 @@
 	verbose = true
 [core]
 	autocrlf = false
-	editor = vim --nofork
-	ignorecase = false
+	editor = vim
+	# ignorecase =
 	quotepath = false
 	safecrlf = true
 [credential]
@@ -24,12 +24,10 @@
 	renames = true
 	tool = vimdiff
 [difftool]
-	guiDefault = true
 	prompt = false
 [difftool "vscode"]
 	cmd = code --wait --diff $LOCAL $REMOTE
 [fetch]
-	all = true
 	prune = true
 	pruneTags = true
 [help]
@@ -38,11 +36,10 @@
 	date = iso
 [merge]
 	conflictStyle = zdiff3
-	ff = false
+	# ff = true
 	guitool = vscode
 	tool = vimdiff
 [mergetool]
-	guiDefault = true
 	prompt = false
 [mergetool "vscode"]
 	cmd = code --wait $MERGED
