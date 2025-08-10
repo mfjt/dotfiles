@@ -3,11 +3,13 @@
 ## Prerequisites
 
 ### Windows
+
 ```powershell
 setx WSLENV LOCALAPPDATA/p
 
 winget install -id XP9KHM4BK9FZ7Q -s msstore -e # Visual Studio Code
 winget install --id Git.MinGit -s winget -e
+winget install --id Neovim.Neovim -s winget -e
 winget install --id twpayne.chezmoi -s winget -e
 
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
