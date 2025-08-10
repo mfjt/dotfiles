@@ -1,13 +1,13 @@
 set hlsearch
 set ignorecase
 set smartcase
-set viminfo+=n~/.vim/viminfo
 
 set backup
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undofile
 set undodir=~/.vim/undo//
+set viminfo+=n~/.vim/viminfo
 silent! call mkdir(expand(&backupdir), 'p', 0700)
 silent! call mkdir(expand(&directory), 'p', 0700)
 silent! call mkdir(expand(&undodir), 'p', 0700)
