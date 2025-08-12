@@ -33,6 +33,7 @@ set autoindent
 set cursorline
 set list
 set listchars=eol:↲,tab:»·,trail:·,extends:»,precedes:«,nbsp:%
+set mouse=a
 set number
 set relativenumber
 
