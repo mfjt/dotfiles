@@ -6,6 +6,8 @@ install.sh
 .vim/
 .bash_aliases
 .bash_profile
+.bashrc
+.bashrc_custom
 {{ end }}
 
 {{ if ne .chezmoi.os "windows" }}

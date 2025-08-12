@@ -1,0 +1,8 @@
+{{ /* chezmoi:modify-template */ }}
+{{- $line := "[ -r ~/.bashrc_custom ] && . ~/.bashrc_custom" -}}
+{{- $content := .chezmoi.stdin -}}
+{{- $content -}}
+{{- if not (contains $line $content) -}}
+  {{- if not (hasSuffix "\n" $content) }}{{ "\n" }}{{ end -}}
+  {{- printf "\n%s\n" $line -}}
+{{- end -}}
