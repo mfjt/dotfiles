@@ -12,12 +12,16 @@ silent! call mkdir(expand(&backupdir), 'p', 0700)
 silent! call mkdir(expand(&directory), 'p', 0700)
 silent! call mkdir(expand(&undodir), 'p', 0700)
 
+inoremap <Left> <C-G>U<Left>
+inoremap <Right> <C-G>U<Right>
 inoremap jj <Esc>
 nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
 nnoremap j gj
 nnoremap k gk
 nnoremap s "_x
 nnoremap S "_S
+nnoremap U <C-r>
+nnoremap Y y$
 nnoremap x "_x
 nnoremap X "_X
 vnoremap s "_x

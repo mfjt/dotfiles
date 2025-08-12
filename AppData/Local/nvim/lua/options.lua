@@ -1,7 +1,7 @@
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
-vim.opt.clipboard = 'unnamedplus'
+vim.opt.clipboard:append("unnamedplus")
 
 if not vim.g.vscode then
   vim.opt.backup = true
