@@ -9,3 +9,17 @@ GIT_PS1_SHOWDIRTYSTATE='true'
 GIT_PS1_SHOWSTASHSTATE='true'
 GIT_PS1_SHOWUNTRACKEDFILES='true'
 GIT_PS1_SHOWUPSTREAM='auto'
+
+if [ -x "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
+
+  if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
+    . "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
+  else
+    for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*; do
+      [[ -r "${COMPLETION}" ]] && . "${COMPLETION}"
+    done
+  fi
+fi
+
+command -v mise &>/dev/null &&  eval "$(mise activate bash)"

@@ -1,12 +1,6 @@
+command -v mise &>/dev/null && eval "$(mise activate --shims bash)"
+
 [ -r "${HOME}/.profile" ] && . "${HOME}/.profile"
-
-[ -x "/home/linuxbrew/.linuxbrew/bin/brew" ] &&
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
-
-if command -v mise &> /dev/null; then
-  eval "$(mise activate bash)"
-  eval "$(mise activate --shims bash)"
-fi
 
 if [ -n "${LOCALAPPDATA}" ]; then
   [ -d "${LOCALAPPDATA}/Microsoft/WinGet/Packages/Git.MinGit_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/bin" ] &&
