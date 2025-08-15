@@ -14,6 +14,7 @@ winget install --id twpayne.chezmoi -s winget -e
 
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+scoop install main/aria2
 scoop install main/zenhan
 ```
 
