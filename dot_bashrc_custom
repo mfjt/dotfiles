@@ -23,3 +23,5 @@ if [ -x "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
 fi
 
 command -v mise &>/dev/null &&  eval "$(mise activate bash)"
+
+export BROWSER='/mnt/c/Windows/System32/rundll32.exe url.dll,FileProtocolHandler'
