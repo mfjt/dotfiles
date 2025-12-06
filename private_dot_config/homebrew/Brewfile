@@ -1,0 +1,4 @@
+brew "awscli"
+brew "chezmoi"
+brew "flyctl"
+brew "mise"

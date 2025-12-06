@@ -10,8 +10,9 @@ GIT_PS1_SHOWSTASHSTATE='true'
 GIT_PS1_SHOWUNTRACKEDFILES='true'
 GIT_PS1_SHOWUPSTREAM='auto'
 
-if [ -x "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
+if [ -x '/home/linuxbrew/.linuxbrew/bin/brew' ]; then
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
+  export HOMEBREW_BUNDLE_FILE_GLOBAL="${HOME}/.config/homebrew/Brewfile"
 
   if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
     . "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"

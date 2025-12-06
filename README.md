@@ -26,7 +26,7 @@ sudo apt install vim-gtk3
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
 brew analytics off
-brew install chezmoi
+brew bundle --file "${HOME}/.config/homebrew/Brewfile"
 ```
 
 ## Initialization
