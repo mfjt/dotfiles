@@ -4,15 +4,15 @@ install.sh
 
 {{ if ne .chezmoi.os "linux" }}
 .claude/
-.vim/
+.config/homebrew/
 .bash*
 {{ end }}
 
-{{ if ne .chezmoi.os "windows" }}
-AppData/
+{{ if and (.is_private_env) (eq .chezmoi.os "windows") }}
+.ssh/
 {{ end }}
 
-{{ if eq (env "REMOTE_CONTAINERS") "true" }}
+{{ if not .is_private_env }}
 .claude/
-.config/git/
+.ssh/*
 {{ end }}

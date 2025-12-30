@@ -1,0 +1,4 @@
+{{- if eq .chezmoi.os "linux" -}}
+#!/bin/sh
+brew bundle --file "${HOME}/.config/homebrew/Brewfile"
+{{ end }}

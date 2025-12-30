@@ -23,6 +23,7 @@ if [ -x '/home/linuxbrew/.linuxbrew/bin/brew' ]; then
   fi
 fi
 
-command -v mise &>/dev/null &&  eval "$(mise activate bash)"
-
 export BROWSER='/mnt/c/Windows/System32/rundll32.exe url.dll,FileProtocolHandler'
+
+command -v mise &>/dev/null && eval "$(mise activate bash)"
+command -v keychain &>/dev/null && eval "$(keychain --agents ssh --eval -q id_ed25519_github)"

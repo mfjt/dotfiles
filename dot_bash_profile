@@ -3,9 +3,6 @@ command -v mise &>/dev/null && eval "$(mise activate --shims bash)"
 [ -r "${HOME}/.profile" ] && . "${HOME}/.profile"
 
 if [ -n "${LOCALAPPDATA}" ]; then
-  [ -d "${LOCALAPPDATA}/Microsoft/WinGet/Packages/Git.MinGit_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/bin" ] &&
-    PATH="${LOCALAPPDATA}/Microsoft/WinGet/Packages/Git.MinGit_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/bin:${PATH}"
-
   [ -d "${LOCALAPPDATA}/Programs/Microsoft VS Code/bin" ] &&
     PATH="${LOCALAPPDATA}/Programs/Microsoft VS Code/bin:${PATH}"
 fi

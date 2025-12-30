@@ -1,0 +1,15 @@
+{{ if eq .chezmoi.os "windows" }}
+setx WSLENV LOCALAPPDATA/p
+setx XDG_CONFIG_HOME %USERPROFILE%\.config
+
+winget install --id XP9KHM4BK9FZ7Q -s msstore -e # Visual Studio Code
+winget install --id Git.MinGit -s winget -e
+winget install --id Neovim.Neovim -s winget -e
+
+{{ if not (lookPath "scoop") }}
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+{{ end }}
+scoop install main/aria2
+scoop install main/zenhan
+{{ end }}

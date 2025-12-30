@@ -7,20 +7,21 @@
 [column]
 	ui = auto
 [commit]
+	gpgsign = true
 	verbose = true
 [core]
 	autocrlf = false
-	{{- if eq .chezmoi.os "linux" }}
-	editor = vim
-	{{- else }}
 	editor = nvim
+	# ignorecase =
+	{{- if eq .chezmoi.os "windows" }}
 	pager =
 	{{- end }}
-	# ignorecase =
 	quotepath = false
 	safecrlf = true
+{{- if .is_wsl }}
 [credential]
-	helper = !git-credential-manager.exe
+	helper = {{ joinPath (env "LOCALAPPDATA") "Microsoft/WinGet/Packages/Git.MinGit_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/bin/git-credential-manager.exe" }}
+{{- end }}
 [diff]
 	algorithm = histogram
 	colorMoved = dimmed-zebra
@@ -35,6 +36,8 @@
 [fetch]
 	prune = true
 	pruneTags = true
+[gpg]
+	format = ssh
 [help]
 	autocorrect = prompt
 [log]
@@ -53,7 +56,13 @@
 [push]
 	autoSetupRemote = true
 [tag]
+	gpgsign = true
 	sort = version:refname
 [user]
 	email = {{ .email }}
 	name = {{ .name }}
+	{{- if and (.is_private_env) (eq .chezmoi.os "windows" ) }}
+	signingkey = {{ .publicKey }}
+	{{- else }}
+	signingkey = ~/.ssh/id_ed25519_github.pub
+	{{- end }}

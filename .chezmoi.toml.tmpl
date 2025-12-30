@@ -1,7 +1,12 @@
-{{- if ne (env "REMOTE_CONTAINERS") "true" }}
+{{ $name := promptString "Name" "oɹıɥɐsɐɯ ɐʇıɾnɟ" -}}
+{{ $email := promptString "Email" "mfjt@users.noreply.github.com" -}}
+{{ $isPrivateEnv := promptBool "Private environment" true -}}
+
 [bitwarden]
     unlock = "auto"
 [data]
-    email = {{ promptString "email" "mfjt@users.noreply.github.com" | quote }}
-    name = {{ promptString "name" "oɹıɥɐsɐɯ ɐʇıɾnɟ" | quote }}
-{{- end }}
+    name = {{ $name | quote }}
+    email = {{ $email | quote }}
+    publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN+3qUBrRO60wD4ousWYu/1CBhllTnQ6fs2SmJT0ZcOR mfjt@users.noreply.github.com"
+    is_private_env = {{ $isPrivateEnv }}
+    is_wsl = {{ and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
