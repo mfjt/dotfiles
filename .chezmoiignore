@@ -3,11 +3,16 @@ README.md
 install.sh
 
 {{ if ne .chezmoi.os "linux" }}
+.claude/
 .vim/
 .bash*
 {{ end }}
 
 {{ if ne .chezmoi.os "windows" }}
-.wslconfig
 AppData/
+{{ end }}
+
+{{ if eq (env "REMOTE_CONTAINERS") "true" }}
+.claude/
+.config/git/
 {{ end }}

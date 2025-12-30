@@ -1,0 +1,7 @@
+{{- if ne (env "REMOTE_CONTAINERS") "true" }}
+[bitwarden]
+    unlock = "auto"
+[data]
+    email = {{ promptString "email" "mfjt@users.noreply.github.com" | quote }}
+    name = {{ promptString "name" "oɹıɥɐsɐɯ ɐʇıɾnɟ" | quote }}
+{{- end }}

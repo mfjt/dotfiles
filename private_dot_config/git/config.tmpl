@@ -10,7 +10,12 @@
 	verbose = true
 [core]
 	autocrlf = false
+	{{- if eq .chezmoi.os "linux" }}
 	editor = vim
+	{{- else }}
+	editor = nvim
+	pager =
+	{{- end }}
 	# ignorecase =
 	quotepath = false
 	safecrlf = true
@@ -49,8 +54,6 @@
 	autoSetupRemote = true
 [tag]
 	sort = version:refname
-[include]
-	path = config.user
-{{ if eq .chezmoi.os "windows" }}
-	path = config.windows
-{{ end }}
+[user]
+	email = {{ .email }}
+	name = {{ .name }}
