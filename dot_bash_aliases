@@ -1,1 +1,5 @@
 alias ll='ls -Fhl'
+alias vi='nvim'
+alias view='nvim -R'
+alias vim='nvim'
+alias vimdiff='nvim -d'

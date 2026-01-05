@@ -5,11 +5,6 @@ sudo apt upgrade -y
 sudo apt install -y keychain neovim
 sudo apt autoremove -y
 
-sudo update-alternatives --set vi /usr/bin/nvim
-sudo update-alternatives --set view /usr/libexec/neovim/view
-sudo update-alternatives --set vim /usr/bin/nvim
-sudo update-alternatives --set vimdiff /usr/libexec/neovim/vimdiff
-
 brew analytics off
 brew install bitwarden-cli
 bw login --check >/dev/null || bw login
