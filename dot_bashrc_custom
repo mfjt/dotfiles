@@ -10,10 +10,7 @@ GIT_PS1_SHOWSTASHSTATE='true'
 GIT_PS1_SHOWUNTRACKEDFILES='true'
 GIT_PS1_SHOWUPSTREAM='auto'
 
-if [ -x '/home/linuxbrew/.linuxbrew/bin/brew' ]; then
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
-  export HOMEBREW_BUNDLE_FILE_GLOBAL="${HOME}/.config/homebrew/Brewfile"
-
+if [ -n "${HOMEBREW_PREFIX}" ]; then
   if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
     . "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
   else
@@ -23,7 +20,4 @@ if [ -x '/home/linuxbrew/.linuxbrew/bin/brew' ]; then
   fi
 fi
 
-export BROWSER='/mnt/c/Windows/System32/rundll32.exe url.dll,FileProtocolHandler'
-
 command -v mise &>/dev/null && eval "$(mise activate bash)"
-command -v keychain &>/dev/null && eval "$(keychain --agents ssh --eval -q id_ed25519_github)"

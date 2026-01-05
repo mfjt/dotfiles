@@ -1,8 +1,18 @@
+[ -r "${HOME}/.profile" ] && . "${HOME}/.profile"
+
+if [ -x '/home/linuxbrew/.linuxbrew/bin/brew' ]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
+  export HOMEBREW_BUNDLE_FILE_GLOBAL="${HOME}/.config/homebrew/Brewfile"
+fi
 command -v mise &>/dev/null && eval "$(mise activate --shims bash)"
 
-[ -r "${HOME}/.profile" ] && . "${HOME}/.profile"
+command -v keychain &>/dev/null && eval "$(keychain --agents ssh --eval -q id_ed25519_github)"
+
+export BROWSER='/mnt/c/Windows/System32/rundll32.exe url.dll,FileProtocolHandler'
+export EDITOR='nvim'
 
 if [ -n "${LOCALAPPDATA}" ]; then
   [ -d "${LOCALAPPDATA}/Programs/Microsoft VS Code/bin" ] &&
     PATH="${LOCALAPPDATA}/Programs/Microsoft VS Code/bin:${PATH}"
 fi
+
