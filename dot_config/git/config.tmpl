@@ -18,10 +18,13 @@
 	{{- end }}
 	quotepath = false
 	safecrlf = true
-{{- if .is_wsl }}
 [credential]
+	{{- if .is_wsl }}
 	helper = {{ joinPath (env "LOCALAPPDATA") "Microsoft/WinGet/Packages/Git.MinGit_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/bin/git-credential-manager.exe" }}
-{{- end }}
+	{{- end }}
+	{{- if not .is_private_env }}
+	gitHubAccountFiltering = false
+	{{- end }}
 [diff]
 	algorithm = histogram
 	colorMoved = dimmed-zebra
@@ -40,13 +43,17 @@
 	format = ssh
 [help]
 	autocorrect = prompt
+{{- if eq .chezmoi.os "windows" }}
+[http]
+	sslBackend = schannel
+{{- end }}
 [log]
 	date = iso
 [merge]
 	conflictStyle = zdiff3
 	# ff = true
 	guitool = vscode
-	tool = vimdiff
+	tool = nvimdiff
 [mergetool]
 	prompt = false
 [mergetool "vscode"]

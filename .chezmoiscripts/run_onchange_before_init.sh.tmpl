@@ -6,6 +6,8 @@ sudo apt install -y keychain neovim
 sudo apt autoremove -y
 
 brew analytics off
+{{ if .is_private_env }}
 brew install bitwarden-cli
 bw login --check >/dev/null || bw login
+{{ end }}
 {{ end }}

@@ -1,6 +1,12 @@
-brew "awscli"
-brew "bitwarden-cli"
 brew "chezmoi"
-brew "flyctl"
+brew "gh"
 brew "neovim"
 brew "mise"
+{{- if .is_private_env }}
+brew "awscli"
+brew "bitwarden-cli"
+brew "claude-code"
+brew "flyctl"
+{{- else }}
+brew "codex"
+{{- end }}
