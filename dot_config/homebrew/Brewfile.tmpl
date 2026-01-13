@@ -5,8 +5,8 @@ brew "mise"
 {{- if .is_private_env }}
 brew "awscli"
 brew "bitwarden-cli"
-brew "claude-code"
 brew "flyctl"
+cask "claude-code"
 {{- else }}
-brew "codex"
+cask "codex"
 {{- end }}
