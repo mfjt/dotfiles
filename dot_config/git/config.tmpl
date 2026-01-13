@@ -22,9 +22,10 @@
 	{{- if .is_wsl }}
 	helper = {{ joinPath (env "LOCALAPPDATA") "Microsoft/WinGet/Packages/Git.MinGit_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/bin/git-credential-manager.exe" }}
 	{{- end }}
-	{{- if not .is_private_env }}
-	gitHubAccountFiltering = false
-	{{- end }}
+{{- if not .is_private_env }}
+[credential "https://github.com"]
+    gitHubAccountFiltering = false
+{{- end }}
 [diff]
 	algorithm = histogram
 	colorMoved = dimmed-zebra
@@ -35,7 +36,11 @@
 [difftool]
 	prompt = false
 [difftool "vscode"]
+	{{- if eq .chezmoi.os "windows" }}
+	cmd = code.cmd --wait --diff $LOCAL $REMOTE
+	{{- else }}
 	cmd = code --wait --diff $LOCAL $REMOTE
+	{{- end }}
 [fetch]
 	prune = true
 	pruneTags = true
@@ -57,7 +62,11 @@
 [mergetool]
 	prompt = false
 [mergetool "vscode"]
-	cmd = code --wait $MERGED
+	{{- if eq .chezmoi.os "windows" }}
+	cmd = code.cmd --wait --merge $REMOTE $LOCAL $BASE $MERGED
+	{{- else }}
+	cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
+	{{- end }}
 [pull]
 	ff = only
 [push]
@@ -68,7 +77,7 @@
 [user]
 	email = {{ .email }}
 	name = {{ .name }}
-	{{- if and (.is_private_env) (eq .chezmoi.os "windows" ) }}
+	{{- if and (.is_private_env) (eq .chezmoi.os "windows") }}
 	signingkey = {{ .publicKey }}
 	{{- else }}
 	signingkey = ~/.ssh/id_ed25519_github.pub
