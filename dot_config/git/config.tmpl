@@ -18,10 +18,10 @@
 	{{- end }}
 	quotepath = false
 	safecrlf = true
+{{- if .is_wsl }}
 [credential]
-	{{- if .is_wsl }}
 	helper = {{ joinPath (env "LOCALAPPDATA") "Microsoft/WinGet/Packages/Git.MinGit_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/bin/git-credential-manager.exe" }}
-	{{- end }}
+{{- end }}
 {{- if not .is_private_env }}
 [credential "https://github.com"]
     gitHubAccountFiltering = false
