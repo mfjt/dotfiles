@@ -2,11 +2,11 @@ brew "chezmoi"
 brew "gh"
 brew "neovim"
 brew "mise"
+cask "claude-code"
 {{- if .is_private_env }}
 brew "awscli"
 brew "bitwarden-cli"
 brew "flyctl"
-cask "claude-code"
 {{- else }}
 cask "codex"
 {{- end }}

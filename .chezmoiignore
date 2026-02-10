@@ -13,6 +13,5 @@ install.sh
 {{ end }}
 
 {{ if not .is_private_env }}
-.claude/
 .ssh/*
 {{ end }}
