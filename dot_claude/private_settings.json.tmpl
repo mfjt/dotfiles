@@ -1,7 +1,7 @@
 {
   "env": {
-    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
     {{- if .is_private_env }}
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
     "AWS_BEARER_TOKEN_BEDROCK": "{{ (bitwardenFields "item" "e2823052-25c8-48d6-be19-b3ab006ea096").AWS_BEARER_TOKEN_BEDROCK.value }}",
     "AWS_REGION": "us-west-2",
     "CLAUDE_CODE_USE_BEDROCK": "1",
@@ -9,5 +9,9 @@
     "ENABLE_TOOL_SEARCH": true
   },
   "language": "Japanese",
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh"
+  },
   "syntaxHighlightingDisabled": false
 }
