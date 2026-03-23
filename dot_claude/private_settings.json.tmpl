@@ -12,6 +12,50 @@
     "ENABLE_TOOL_SEARCH": true
   },
   "language": "Japanese",
+  "permissions": {
+    "allow": [
+      "Bash(git add*)",
+      "Bash(git branch)",
+      "Bash(git diff*)",
+      "Bash(git log*)",
+      "Bash(git status*)"
+    ],
+    "ask": [
+      "Bash(git branch *)",
+      "Bash(git commit*)",
+      "Bash(git fetch*)",
+      "Bash(git merge*)",
+      "Bash(git pull*)",
+      "Bash(git push*)",
+      "Bash(git rebase*)",
+      "Bash(git reset*)",
+      "Bash(git stash*)",
+      "Bash(git tag*)",
+      "Bash(rm *)"
+    ],
+    "deny": [
+      "Bash(curl *)",
+      "Bash(git add .)",
+      "Bash(git add . *)",
+      "Bash(git add -A*)",
+      "Bash(git add --all*)",
+      "Bash(git add -u*)",
+      "Bash(git add --update*)",
+      "Bash(rm -fr *)",
+      "Bash(rm -rf *)",
+      "Bash(sudo *)",
+      "Bash(wget *)",
+      "Read(**/.env)",
+      "Read(**/.env.*)",
+      "Read(**/*.env)",
+      "Read(**/*.env.*)",
+      "Read(**/.ssh/**)"
+    ]
+  },
+  "sandbox": {
+    "enabled": true,
+    "autoAllowBashIfSandboxed": true
+  },
   "statusLine": {
     "type": "command",
     "command": "~/.claude/statusline.sh"
