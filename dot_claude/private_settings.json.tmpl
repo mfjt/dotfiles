@@ -5,6 +5,7 @@
   },
   "enabledPlugins": {
     "codex@openai-codex": true,
+    "commit-commands@claude-plugins-official": true,
     "pyright-lsp@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": true
   },
@@ -53,6 +54,9 @@
   },
   "sandbox": {
     "enabled": true,
+    "excludedCommands": [
+      "git"
+    ],
     "allowUnsandboxedCommands": false,
     "autoAllowBashIfSandboxed": true
   },
