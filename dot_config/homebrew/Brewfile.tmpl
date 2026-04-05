@@ -1,14 +1,12 @@
 brew "chezmoi"
-brew "gh"
-brew "jq"
+brew "gemini-cli"
 brew "neovim"
 brew "mise"
 cask "claude-code"
+cask "codex"
 cask "copilot-cli"
 {{- if .is_private_env }}
 brew "awscli"
 brew "bitwarden-cli"
 brew "flyctl"
-{{- else }}
-cask "codex"
 {{- end }}

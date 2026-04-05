@@ -2,12 +2,14 @@
 #!/bin/sh
 sudo apt update
 sudo apt upgrade -y
-sudo apt install -y bubblewrap keychain pulseaudio-utils socat
+sudo apt install -y bubblewrap jq keychain pulseaudio-utils socat
 sudo apt autoremove -y
 
 brew analytics off
 {{ if .is_private_env }}
 brew install bitwarden-cli
 bw login --check >/dev/null || bw login
+{{ else }}
+sudo apt install azure-cli gh
 {{ end }}
 {{ end }}
