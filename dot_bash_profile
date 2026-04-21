@@ -12,7 +12,7 @@ command -v mise &>/dev/null && eval "$(mise activate --shims bash)"
 
 [ -r "${HOME}/.profile" ] && . "${HOME}/.profile"
 
-command -v keychain &>/dev/null && eval "$(keychain --agents ssh --absolute --dir "${XDG_RUNTIME_DIR}/keychain" --eval -q id_ed25519_github)"
+command -v keychain &>/dev/null && eval "$(keychain --agents ssh --absolute --dir "${XDG_RUNTIME_DIR}keychain" --eval -q id_ed25519_github)"
 
 export BROWSER='/mnt/c/Windows/System32/rundll32.exe url.dll,FileProtocolHandler'
 export EDITOR='nvim'
