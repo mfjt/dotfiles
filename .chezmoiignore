@@ -6,6 +6,7 @@ install.sh
 .claude/
 .config/homebrew/
 .bash*
+.npmrc
 {{ end }}
 
 {{ if and (.is_private_env) (eq .chezmoi.os "windows") }}
