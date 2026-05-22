@@ -1,4 +1,6 @@
 {{- if eq .chezmoi.os "linux" -}}
 #!/bin/sh
+systemctl --user daemon-reload
+systemctl --user enable --now ssh-agent.service
 brew bundle --file "${HOME}/.config/homebrew/Brewfile"
 {{ end }}

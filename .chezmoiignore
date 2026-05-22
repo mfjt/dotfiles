@@ -5,6 +5,7 @@ install.sh
 {{ if ne .chezmoi.os "linux" }}
 .claude/
 .config/homebrew/
+.config/systemd/
 .bash*
 .npmrc
 {{ end }}
@@ -14,5 +15,5 @@ install.sh
 {{ end }}
 
 {{ if not .is_private_env }}
-.ssh/*
+.ssh/id_*
 {{ end }}
