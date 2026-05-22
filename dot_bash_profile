@@ -7,8 +7,6 @@ command -v mise &>/dev/null && eval "$(mise activate --shims bash)"
 
 [ -r "${HOME}/.profile" ] && . "${HOME}/.profile"
 
-export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
-
 export BROWSER='/mnt/c/Windows/System32/rundll32.exe url.dll,FileProtocolHandler'
 export EDITOR='nvim'
 
